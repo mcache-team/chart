@@ -1,0 +1,5 @@
+backend:
+  enabled: true
+  image:
+    repository: ghcr.io/mcache-team/mcache
+    tag: v0.0.3
