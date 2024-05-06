@@ -5,12 +5,14 @@ displayName:
   zh: MCache缓存
   en: MCache Storage
 description:
-  zh: 一个简单的内存缓存服务
+  zh: 轻量级缓存服务，支持不同芯片架构，支持自定义扩展数据存储
   en: This is a sample memory cache service
-category: storage
+category: database
 keywords:
-  - storage
-home: https://kubesphere.io
+  - cache
+  - multiple arch
+  - light
+home: https://mcache-team.github.io/mcache/
 sources:
   - https://github.com/mcache-team/mcache
 kubeVersion: ">=1.19.0-0"
@@ -30,7 +32,9 @@ provider:
     url: "https://github.com/AlpherJang"
 icon: ./static/mcache.png
 screenshots:
-  - ./static/screenshots/screenshot.png
+  - ./static/screenshots/screenshot1.jpg
+  - ./static/screenshots/screenshot2.jpg
+  - ./static/screenshots/screenshot3.jpg
 dependencies:
   - name: backend
     tags:

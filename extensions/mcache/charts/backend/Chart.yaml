@@ -4,8 +4,8 @@ description: Backend of mcache extension.
 type: application
 version: 0.0.1
 appVersion: "0.0.1"
-home: https://kubesphere.io
+home: https://mcache-team.github.io/mcache/
 sources:
-  - https://github.com/kubesphere
+  - https://github.com/mcache-team/mcache
 annotations:
   extensions.kubesphere.io/foo: bar
