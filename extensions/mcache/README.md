@@ -1,28 +1,42 @@
 # MCache
 
-一个适用于各种不同架构的简单的缓存服务，由Golang开发，数据默认存储于内存中，当然支持用户自定义实现存储插件进行数据存储。
+MCache is a simple cache service suit for different architecture server, developed by Golang, as default cache data will save to memory, and support user custom define data plugin by them self.
 
-## 描述
-MCache是一个内存缓存工具，一开始写这个工具主要是因为自己的一些项目经常需要在内存里缓存一些数据，并要实现类似于redis这种成型的缓存工具中都具备的一些多级查找、过期时间、类型等各种丰富的功能，但又不想引入一个外部的服务增加网络复杂性，因此就手写一个共用的模块，哪里需要就在哪里集成就行了。
+## Description
+MCache is a memory caching tool. Initially, I wrote this tool mainly because some of my projects often need to cache data in memory and implement various rich functions such as multi-level lookup, expiration time, and type that are commonly found in caching tools like Redis. However, I didn't want to introduce an external service to increase network complexity, so I wrote a shared module and integrated it wherever needed.
 
-在这基础上进行了功能扩展，让MCache能具备更多的能力，因此，我简单规划了下，后续会逐渐在里面实现几个方向的功能，当然，作为最基础的能力内置集成这块保证不受到影响。后续会增加HTTP、GRPC、QUICK、WS等多种协议，同时提供Watch机制，当然也有可能引入raft支持多节点同步的效果。
+On this basis, functional extensions have been made to enable MCache to have more capabilities. Therefore, I have made a simple plan and will gradually implement functions in several directions in the future. Of course, as the most basic feature, the built-in integration is guaranteed not to be affected. In the future, multiple protocols such as HTTP, GRPC, QUICK, WS, etc. will be added, and a Watch mechanism will be provided. Of course, it is also possible to introduce the effect of raft supporting multi node synchronization.
 
-## 安装
+## Install
 
-默认的values配置足矣支持适用，如果你想要自定义，请自行定制`values.yaml`文件
+Default values config is enough to run MCache, if you want to custom, please edit `values.yaml`.
 
-## 测试
+## Test
 
 ```shell
-curl address/v1/data/test
+# query data
+curl http://127.0.0.1:8080/v1/data/test
 
 # will get response cache not found
+
+# write one record
+curl --location --request PUT 'http://127.0.0.1:8080/v1/data' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "prefix":"test",
+    "data":"test"
+}'
+
+# remove data
+curl --location --request DELETE 'http://127.0.0.1:8080/v1/data/test'
 ```
+more usage demo and features please visit homepage(https://mcache-team.github.io/mcache/) of MCache to learning.
 
-## 关于我
+## About Me
 
-- 昵称：窝窝头(AlpheJangs)
-- 邮箱: alphejangs@gmail.com
-- 博客: https://alpherjang.github.io/
-- github主页:https://github.com/AlpherJang
-- 关于MCache有任何建议意见，欢迎大家找交流
+- Nickname：窝窝头(AlpheJangs)
+- Email: alphejangs@gmail.com
+- Blog: https://alpherjang.github.io/
+- Github Page:https://github.com/AlpherJang
+- Person Introduce: years of experience in cloud native development, enjoy building my own wheels
+- Any suggestion about MCache, please connect me.

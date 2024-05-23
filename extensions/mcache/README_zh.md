@@ -14,15 +14,30 @@ MCache是一个内存缓存工具，一开始写这个工具主要是因为自�
 ## 测试
 
 ```shell
-curl address/v1/data/test
+# 查询数据
+curl http://127.0.0.1:8080/v1/data/test
 
 # will get response cache not found
+
+# 写入一条数据
+curl --location --request PUT 'http://127.0.0.1:8080/v1/data' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "prefix":"test",
+    "data":"test"
+}'
+
+# 删除数据
+curl --location --request DELETE 'http://127.0.0.1:8080/v1/data/test'
 ```
+
+更多的使用方式以及特性请访问MCache的项目主页进行学习了解: https://mcache-team.github.io/mcache/
 
 ## 关于我
 
-昵称：窝窝头(AlpheJangs)
-邮箱: alphejangs@gmail.com
-博客: https://alpherjang.github.io/
-github主页:https://github.com/AlpherJang
-个人简介: 关于MCache有任何建议意见，欢迎大家找交流
+- 昵称：窝窝头(AlpheJangs)
+- 邮箱: alphejangs@gmail.com
+- 博客: https://alpherjang.github.io/
+- github主页:https://github.com/AlpherJang
+- 个人简介: 多年的云原生开发经验，喜欢自己造轮子 
+- 关于MCache有任何建议意见，欢迎大家找我交流
